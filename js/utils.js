@@ -42,7 +42,7 @@
   // to avoid any residual overrides from previous sessions/builds.
   window.addEventListener('load', function(){
     if (isDesktop()) {
-      document.documentElement.style.setProperty('--logo-desktop', '260px');
+      document.documentElement.style.setProperty('--logo-desktop', '300px');
     }
   });
 

@@ -10,19 +10,15 @@
     mobileMenuInit();
     logoFallbackInit();
     formsInit();
+    debugLogoMetrics();
     console.log('Solix initialized');
   }
 
   /* Ensure header logo loads; fall back to alternate assets if primary fails */
   function logoFallbackInit() {
     var img = document.getElementById('site-logo');
-    if (!img) return;
-    var candidates = [
-      (document.getElementById('site-logo')?.getAttribute('data-preferred') || 'images/solix-logo-header.png'),
-      'images/solix-logo-standard.png',
-      'images/solix-logo.png',
-      'images/solix-logo-dark.png'
-    ];
+    if (!img) return; // logo removed per request
+    var candidates = [];
     var idx = 0;
     function tryNext() {
       if (idx >= candidates.length) return;
@@ -312,6 +308,24 @@
         submitBtn.disabled = false;
       }
     });
+  }
+
+  function debugLogoMetrics() {
+    try {
+      var img = document.getElementById('site-logo');
+      if (!img) { console.log('LOGO metrics: no #site-logo element'); return; }
+      function report(){
+        var cs = getComputedStyle(img);
+        var rect = img.getBoundingClientRect();
+        console.log('LOGO metrics:', {
+          src: img.currentSrc || img.src,
+          natural: { w: img.naturalWidth, h: img.naturalHeight },
+          css: { height: cs.height, width: cs.width },
+          box: { w: Math.round(rect.width), h: Math.round(rect.height) }
+        });
+      }
+      if (img.complete) report(); else img.addEventListener('load', report);
+    } catch (e) { console.log('LOGO metrics error:', e && e.message); }
   }
 
   function buildQuoteEmailBody(q, total) {
