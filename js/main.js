@@ -140,7 +140,7 @@
   function formsInit() {
     // Initialize EmailJS (safe even if key missing)
     try {
-      emailjs.init({ publicKey: 'YOUR_PUBLIC_KEY' });
+     emailjs.init({ publicKey: 'TedUpIq3BrX6TRfl1' });
     } catch (_) {}
 
     quoteFormInit();
@@ -199,7 +199,7 @@
       var total = payload.deliveryFrequency === 'monthly' && months > 0 ? qty * months : qty;
 
       var templateParams = {
-        to_email: 'Info@solix-Int.com',
+        to_email: 'bshalaby@gmail.com',
         from_name: payload.contactPerson,
         from_email: payload.email,
         company_name: payload.company,
@@ -220,7 +220,7 @@
       };
 
       emailjs
-        .send('YOUR_SERVICE_ID', 'YOUR_QUOTE_TEMPLATE_ID', templateParams)
+        .send('service_p6km7mg', 'template_jjbpssm', templateParams)
         .then(function () {
           form.classList.add('hidden');
           success.classList.remove('hidden');
@@ -272,7 +272,7 @@
       };
 
       var templateParams = {
-        to_email: 'Info@solix-Int.com',
+        to_email: 'bshalaby@gmail.com',
         from_name: payload.name,
         from_email: payload.email,
         subject: payload.subject,
@@ -282,7 +282,7 @@
       };
 
       emailjs
-        .send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', templateParams)
+        .send('service_p6km7mg', 'template_k5b9cx1', templateParams)
         .then(function () {
           form.classList.add('hidden');
           success.classList.remove('hidden');
