@@ -68,6 +68,9 @@ html { scroll-behavior: smooth; overscroll-behavior: none; }
   /* Clip anything below the visible header area to remove the "square" without changing shade */
 }
 
+/* Utility classes */
+.hidden { display: none !important; }
+
 /* Header logo: tight crop presentation - non-destructive mask just in case the PNG has internal padding */
 .site-logo-compact {
   height: var(--logo-compact) !important; /* dominant header logo */
