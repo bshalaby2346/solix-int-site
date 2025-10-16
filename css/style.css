@@ -3,16 +3,16 @@ html { scroll-behavior: smooth; overscroll-behavior: none; }
 
 :root {
   /* Desktop header decoupled from logo size to prevent "shade" growth */
-  --header-desktop: 112px; /* compact fixed header height (keep in sync with hero and popover) */
+  --header-desktop: 70px; /* Compact header height for smaller logo */
   --header-top-inset-mm: 20mm; /* physical spacing for visual alignment */
-  --header-top-inset: 76px;    /* ~20mm in px for reliable math (96dpi reference) */
-  --header-content-offset: 40px; /* push header content row down from top edge (desktop only) */
+  --header-top-inset: 60px;    /* Balanced offset */
+  --header-content-offset: 30px; /* Balanced content positioning */
   --logo-gap: 0px;
-  --logo-desktop: 300px;  /* legacy var; no longer used for header logo */
-  --logo-compact: 280px;  /* header logo height (desktop) */
+  --logo-desktop: 100px;  /* 60% of previous size */
+  --logo-compact: 85px;  /* Compact version for header */
   --hero-push: 0px;
   /* Mobile variables (hero carries the large brand) */
-  --logo-mobile: clamp(180px, 48vw, 270px);
+  --logo-mobile: clamp(150px, 40vw, 220px);
   --header-mobile: calc(var(--logo-mobile) + 44px);
   /* Cropping percentages for header logo with internal transparent padding */
   --logo-crop-top: 0%;
@@ -44,18 +44,22 @@ html { scroll-behavior: smooth; overscroll-behavior: none; }
 /* explicit container height inside header to prevent cropping */
 .site-header > .container { min-height: var(--header-desktop); padding-top: var(--header-content-offset); } /* content row offset from top edge */
 .site-header .container img.site-logo { max-height: none; height: var(--logo-desktop); }
-/* Logo removed visually; ensure layout remains stable */
-.brand-wrap { display:flex; align-items:center; min-height: var(--header-desktop); flex: 0 0 auto; }
+/* Clean logo wrapper */
+.brand-wrap { 
+  display:flex; 
+  align-items:center; 
+  min-height: var(--header-desktop); 
+  flex: 0 0 auto; 
+}
 
 .site-logo {
   display: block;
-  height: var(--logo-desktop);
+  height: var(--logo-compact);
   width: auto;
-  max-width: none; /* allow natural width, height controls scale */
-  /* Avoid forcing extremely wide min-width which could cause layout issues on some desktops */
-  min-width: clamp(360px, 28vw, 960px);
+  max-width: none;
+  min-width: clamp(200px, 15vw, 350px);
   object-fit: contain;
-  object-position: left center; /* ensure left alignment within header */
+  object-position: left center;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   flex: 0 0 auto; /* never let flexbox squeeze the logo */
@@ -71,11 +75,10 @@ html { scroll-behavior: smooth; overscroll-behavior: none; }
   max-width: none;
   display: block;
   object-fit: contain;
-  object-position: left center;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  /* Visually crop white margins from asset (non-destructive) */
-  clip-path: inset(19% 2% 15% 0%);
+  /* Filter to remove pinkish tint and make it cleaner */
+  filter: brightness(1.1) contrast(1.05) saturate(0.9);
   pointer-events: none; /* prevent any invisible box from intercepting clicks */
   flex: 0 0 auto;
 }
@@ -201,7 +204,7 @@ html { scroll-padding-top: var(--header-desktop); /* anchors land at bottom edge
     padding-left: 0.75rem;
     padding-right: 2.75rem; /* space for absolute hamburger */
   }
-  .site-logo-compact { display: none !important; } /* keep mobile header clean */
+  .site-logo-compact { display: block !important; } /* Show logo on mobile */
   .mobile-menu-btn {
     position: absolute;
     right: 0.75rem;
@@ -209,8 +212,8 @@ html { scroll-padding-top: var(--header-desktop); /* anchors land at bottom edge
     transform: translateY(-50%);
     z-index: 2;
   }
-  /* Hide header logo on mobile; show large hero logo instead */
-  .site-logo { display: none !important; }
+  /* Show header logo on mobile; hide large hero logo on desktop */
+  .site-logo { display: block !important; }
   .mobile-nav { top: var(--header-mobile-height); }
   html { scroll-padding-top: var(--header-mobile-height); }
   /* Equal spacing: top band → logo and logo → heading use the same value */
