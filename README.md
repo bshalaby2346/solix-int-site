@@ -1,6 +1,5 @@
 # Solix International — One‑Page Static Site (Polished, Balanced, and Stable)
 
-Force rebuild
 This build delivers a visually balanced, fast, and accessible one‑pager with the header/hero shade eliminated, the logo hierarchy fixed, six Capabilities restored (2 × 3), and forms wired with EmailJS + graceful mailto fallback. Product cards now use real images (desktop thumbnails + larger mobile images).
 
 1) Currently Completed Features (2025‑09‑30)

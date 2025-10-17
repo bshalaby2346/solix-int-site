@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solix International - SGS Certified Global Cement & Gypsum Solutions</title>
+    <meta name="description" content="Solix International - Leading SGS certified cement and gypsum supplier with 75+ million tons capacity from Egypt and UAE manufacturers, serving construction projects worldwide.">
+    
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS for form submissions -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/icons.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* SIMPLE LOGO + HAMBURGER MENU SYSTEM */
+        .logo-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .header-logo {
+            height: 180px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .menu-button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .menu-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dropdown-menu {
+            position: fixed;
+            top: 200px;
+            right: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            min-width: 200px;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .dropdown-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #334155;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: #f1f5f9;
+            color: #2563eb;
+        }
+        
+        /* Clean scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 200px;
+        }
+        
+        .hero-section {
+            padding-top: 220px;
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .logo-header {
+                height: 100px;
+                padding: 0 15px;
+            }
+            
+            .header-logo {
+                height: 80px;
+            }
+            
+            .menu-button {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .dropdown-menu {
+                top: 100px;
+                right: 15px;
+                left: 15px;
+                min-width: auto;
+            }
+            
+            html {
+                scroll-padding-top: 100px;
+            }
+            
+            .hero-section {
+                padding-top: 120px;
+            }
+        }
+        
+        /* Clean backgrounds */
+        body, html {
+            background: white !important;
+        }
+    </style>
+</head>
+<body class="font-inter" style="background: white !important; background-color: white !important;">
+    <!-- SIMPLE HEADER WITH HAMBURGER MENU -->
+    <header class="logo-header">
+        <img 
+            src="images/solix-logo-light.png" 
+            alt="Solix International SGS Certified Logo" 
+            class="header-logo"
+        >
+        
+        <button class="menu-button" id="menuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="dropdown-menu" id="dropdownMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#quote">Quote</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden" style="background: white !important;">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22grain%22 width=%2250%22 height=%2250%22 patternUnits=%22userSpaceOnUse%22><circle cx=%2225%22 cy=%2225%22 r=%221%22 fill=%22%23334155%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23grain)%22/></svg>');"></div>
+        </div>
+
+        <!-- Floating Elements Removed -->
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-5xl mx-auto pt-8">
+                <h1 class="hero-title font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up leading-relaxed overflow-visible">
+                    <span class="block text-secondary-900 mb-2">Cement & Gypsum</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-800">Solutions</span>
+                </h1>
+                
+                <!-- SGS Quality Promise -->
+                <div class="mb-6 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="inline-flex items-center bg-green-50 border-2 border-green-200 rounded-2xl px-6 py-3 mb-2">
+                        <i class="fas fa-award text-green-600 mr-3 text-lg icon-pulse"></i>
+                        <p class="text-base md:text-lg font-semibold text-green-700">
+                            "Quality is never a question with Solix - it's guaranteed by SGS"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mb-8 animate-fade-in" style="animation-delay: 0.4s;">
+                    <p class="text-base md:text-lg text-secondary-600 mb-4 max-w-4xl mx-auto leading-relaxed">
+                        Solix bridges global construction markets with premium cement and gypsum solutions, 
+                        leveraging <strong>75+ million tons</strong> of annual capacity from our strategic manufacturing partnerships across Egypt and the UAE.
+                    </p>
+                    <p class="text-base md:text-lg text-secondary-600 max-w-4xl mx-auto leading-relaxed">
+                        With <strong>SGS contracted for all inspections and certifications</strong>, every shipment undergoes rigorous certification and pre-departure inspection, 
+                        ensuring your large-scale projects receive <strong>ASTM and European CE certified</strong> materials that meet the highest international standards.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in" style="animation-delay: 0.6s;">
+                    <a href="#quote" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-xl hover:from-primary-700 hover:to-primary-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <i class="fas fa-calculator mr-3"></i>
+                        Request Quote
+                    </a>
+                    <a href="#capabilities" class="inline-flex items-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-xl border-2 border-primary-200 hover:border-primary-400 hover:bg-primary-50 transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-shipping-fast mr-3"></i>
+                        Our Capabilities
+                    </a>
+                </div>
+
+                <!-- Key Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 animate-fade-in" style="animation-delay: 0.9s;">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">75M+</div>
+                        <div class="text-secondary-600 font-medium">Tons Annual Capacity</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">7M</div>
+                        <div class="text-secondary-600 font-medium">Max Project Size (Tons)</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">4</div>
+                        <div class="text-secondary-600 font-medium">Global Regions Served</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <a href="#about" class="text-secondary-400 hover:text-primary-600 transition-colors duration-300">
+                <i class="fas fa-angle-down text-xl opacity-70 icon-bounce"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-secondary-900 mb-4">
+                        About Solix International
+                    </h2>
+                    <div class="mb-6">
+                        <p class="text-lg font-medium text-green-700 italic mb-4">
+                            "Quality is never a question with Solix - it's guaranteed by SGS"
+                        </p>
+                    </div>
+                    <p class="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+                        Established cement trading company with strategic offices in Egypt and the UAE, 
+                        leveraging extensive sourcing networks across both regions to connect global construction projects with premium cement and gypsum solutions.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-handshake text-primary-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-xl text-secondary-900 mb-2">SGS Certified Sourcing Network</h3>
+                                    <p class="text-secondary-600 leading-relaxed">
+                                        Sales agents for all Egyptian cement manufacturers plus prominent UAE cement producers, 
+                                        with combined output exceeding 75 million tons per year. All products undergo SGS certification and pre-departure inspection, ensuring competitive pricing and guaranteed quality compliance.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-globe-americas text-primary-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-xl text-secondary-900 mb-2">Global Reach</h3>
+                                    <p class="text-secondary-600 leading-relaxed">
+                                        Successfully supplied cement for major construction projects across the Middle East, 
+                                        United States, United Kingdom, and Europe.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-ship text-primary-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-xl text-secondary-900 mb-2">Strategic Infrastructure</h3>
+                                    <p class="text-secondary-600 leading-relaxed">
+                                        Currently acquiring leased space in one of the UK's most modern silos/ports at Tilbury, 
+                                        enhancing our European distribution capabilities.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-star text-primary-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-xl text-secondary-900 mb-2">Premium Gypsum</h3>
+                                    <p class="text-secondary-600 leading-relaxed">
+                                        Recently entered the gypsum market with high-grade products featuring patented trademarks, 
+                                        manufactured in Egypt at highly competitive pricing.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 transform rotate-3 shadow-xl">
+                            <div class="bg-white rounded-xl p-8 transform -rotate-3">
+                                <h4 class="font-playfair text-2xl font-bold text-secondary-900 mb-6">Our Mission</h4>
+                                <p class="text-secondary-600 leading-relaxed mb-6">
+                                    To bridge global construction needs with reliable, SGS certified cement and gypsum solutions, 
+                                    leveraging our extensive sourcing networks across Egypt and UAE alongside our logistics expertise to deliver excellence on every project.
+                                </p>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-certificate text-primary-600"></i>
+                                        <span class="text-secondary-700">SGS Certified & Inspected</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-globe-americas text-primary-600"></i>
+                                        <span class="text-secondary-700">ASTM & European CE Certified</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-check-circle text-primary-600"></i>
+                                        <span class="text-secondary-700">Up to 7M Tons Per Project</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-check-circle text-primary-600"></i>
+                                        <span class="text-secondary-700">Priority Logistics Network</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-check-circle text-primary-600"></i>
+                                        <span class="text-secondary-700">Regional Supply Chain Redundancy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-secondary-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+                        Our Products
+                    </h2>
+                    <p class="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+                        High-quality cement and gypsum products meeting <strong>ASTM, European CE, and SGS standards</strong>, 
+                        sourced from leading manufacturers across Egypt and the UAE. Complete international compliance for American and European markets.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Cement Products -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover depth-shadow">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center mb-6 shadow-xl product-icon">
+                            <i class="fas fa-cubes text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold text-secondary-900 mb-4">Cement Products</h3>
+                        <p class="text-secondary-600 mb-6 leading-relaxed">
+                            Premium cement grades including <strong>ASTM 150 and European CE certified products</strong>, sourced from leading manufacturers 
+                            across Egypt and UAE with 75+ million tons combined annual capacity. Every shipment is SGS certified and inspected before departure.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-certificate text-primary-600"></i>
+                                <span class="text-secondary-700">ASTM 150 & European CE Certified</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-shield-check text-primary-600"></i>
+                                <span class="text-secondary-700">SGS Pre-departure Inspection</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-globe-americas text-primary-600"></i>
+                                <span class="text-secondary-700">American & European Standards</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-cogs text-primary-600"></i>
+                                <span class="text-secondary-700">All Common Grades Available</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-secondary-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-secondary-900 mb-2">Capacity Range</h4>
+                            <p class="text-secondary-600 text-sm">Up to 7 million tons per project</p>
+                        </div>
+                    </div>
+
+                    <!-- Gypsum Products -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover depth-shadow">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-700 rounded-2xl flex items-center justify-center mb-6 shadow-xl product-icon">
+                            <i class="fas fa-layer-group text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold text-secondary-900 mb-4">Gypsum Products</h3>
+                        <p class="text-secondary-600 mb-6 leading-relaxed">
+                            <strong>High-grade gypsum products with patented trademarks</strong>, manufactured across our regional network 
+                            with SGS quality certification and superior standards at competitive market pricing. Recently entered the gypsum market with strategic positioning and premium quality focus.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-award text-accent-600"></i>
+                                <span class="text-secondary-700">Patented Trademark Products</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-shield-check text-accent-600"></i>
+                                <span class="text-secondary-700">SGS Quality Certified</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-globe-americas text-accent-600"></i>
+                                <span class="text-secondary-700">International Standards</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-cogs text-accent-600"></i>
+                                <span class="text-secondary-700">Premium Grade Materials</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-accent-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-secondary-900 mb-2">Market Entry</h4>
+                            <p class="text-secondary-600 text-sm">Recently entered with premium positioning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="py-20 bg-white concrete-pattern">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+                        Our Capabilities
+                    </h2>
+                    <p class="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+                        Comprehensive procurement and logistics capabilities enabling us to handle 
+                        large-scale construction projects worldwide.
+                    </p>
+                </div>
+
+                <!-- Capabilities Grid -->
+                <div class="mb-16">
+                    <!-- First 6 capabilities in 3x2 grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-handshake text-primary-600 text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl text-secondary-900 mb-4">SGS Certified Supply Chain</h3>
+                        <p class="text-secondary-600 leading-relaxed">
+                            Exclusive partnerships with all Egyptian cement manufacturers plus prominent UAE producers, 
+                            creating unmatched supply chain redundancy with SGS certification and inspection for every shipment.
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-truck text-primary-600 text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl text-secondary-900 mb-4">Priority Logistics</h3>
+                        <p class="text-secondary-600 leading-relaxed">
+                            Established connections with logistics providers ensuring timely deliveries 
+                            to construction sites worldwide.
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-globe-americas text-primary-600 text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl text-secondary-900 mb-4">Global Reach</h3>
+                        <p class="text-secondary-600 leading-relaxed">
+                            Successfully served projects across Middle East, Caribbean, United States, 
+                            United Kingdom, and Europe.
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-accent-100 to-accent-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-warehouse text-accent-600 text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl text-secondary-900 mb-4">Strategic Storage</h3>
+                        <p class="text-secondary-600 leading-relaxed">
+                            Acquiring leased space in modern UK silos at Tilbury port, 
+                            enhancing European distribution capabilities.
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-award text-green-600 text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl text-secondary-900 mb-4">SGS Quality Assurance</h3>
+                        <p class="text-secondary-600 leading-relaxed">
+                            SGS contracted for all cement inspections and certifications 
+                            before departure, guaranteeing <strong>ASTM, CE, and quality compliance</strong> for every shipment.
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-certificate text-purple-600 text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl text-secondary-900 mb-4">Multi-Standard Compliance</h3>
+                        <p class="text-secondary-600 leading-relaxed">
+                            Complete certification portfolio covering ASTM, European CE, 
+                            and regional standards for seamless global project compliance.
+                        </p>
+                    </div>
+
+                </div>
+                
+                    <!-- 7th capability centered -->
+                    <div class="flex justify-center">
+                        <div class="text-center max-w-sm">
+                            <div class="w-20 h-20 bg-gradient-to-br from-accent-100 to-accent-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-users-cog text-accent-600 text-3xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-xl text-secondary-900 mb-4">Expert Team</h3>
+                            <p class="text-secondary-600 leading-relaxed">
+                                Experienced professionals with deep knowledge of international 
+                                trade, logistics, and construction materials.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-8 md:p-12">
+                    <h3 class="font-playfair text-3xl font-bold text-white text-center mb-12">
+                        By the Numbers
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div class="text-4xl md:text-5xl font-bold text-white mb-2">75M+</div>
+                            <div class="text-primary-100">Tons Annual Capacity</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl md:text-5xl font-bold text-white mb-2">7M</div>
+                            <div class="text-primary-100">Maximum Project Size</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl md:text-5xl font-bold text-white mb-2">4</div>
+                            <div class="text-primary-100">Global Regions</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl md:text-5xl font-bold text-white mb-2">2</div>
+                            <div class="text-primary-100">Strategic Offices</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Request Section -->
+    <section id="quote" class="py-20 bg-secondary-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+                        Request a Quote
+                    </h2>
+                    <p class="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+                        Get competitive pricing for your construction project. Our team will provide 
+                        a detailed quote based on your specific requirements.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 depth-shadow-lg">
+                    <form id="quote-form" class="space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Company Information -->
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Company Name *</label>
+                                <input type="text" name="company" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Contact Person *</label>
+                                <input type="text" name="contact_person" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Email Address *</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Phone Number</label>
+                                <input type="tel" name="phone" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                            </div>
+                        </div>
+
+                        <!-- Project Information -->
+                        <div class="border-t border-secondary-100 pt-8">
+                            <h3 class="text-xl font-semibold text-secondary-900 mb-6">Project Details</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Product Type *</label>
+                                    <select name="product_type" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                        <option value="">Select Product Type</option>
+                                        <option value="cement">Cement</option>
+                                        <option value="gypsum">Gypsum</option>
+                                        <option value="both">Both Cement & Gypsum</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Cement Grade</label>
+                                    <select name="cement_grade" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                        <option value="">Select Cement Grade</option>
+                                        <optgroup label="ASTM Standards (American)">
+                                            <option value="astm-150-type-1">ASTM 150 Type I</option>
+                                            <option value="astm-150-type-2">ASTM 150 Type II</option>
+                                            <option value="astm-150-type-3">ASTM 150 Type III</option>
+                                            <option value="astm-150-type-4">ASTM 150 Type IV</option>
+                                            <option value="astm-150-type-5">ASTM 150 Type V</option>
+                                        </optgroup>
+                                        <optgroup label="European CE Standards">
+                                            <option value="ce-42.5n">CE 42.5 N (Normal early strength)</option>
+                                            <option value="ce-42.5r">CE 42.5 R (Rapid early strength)</option>
+                                        </optgroup>
+                                        <optgroup label="Other Standards">
+                                            <option value="opc-42.5">OPC 42.5</option>
+                                            <option value="opc-52.5">OPC 52.5</option>
+                                            <option value="other">Other (specify in notes)</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Packaging Type *</label>
+                                    <select name="packaging_type" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                        <option value="">Select Packaging Type</option>
+                                        <option value="bulk">Bulk (Loose) - For large projects with pneumatic systems</option>
+                                        <option value="jumbo-bags">1.5 Ton Polyester Lined Jumbo Bags - Premium quality</option>
+                                        <option value="50kg-bags">50 kg Bags - Standard retail packaging</option>
+                                        <option value="mixed">Mixed Packaging (specify requirements in notes)</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Quantity (Tons) *</label>
+                                    <input type="number" name="quantity" required min="1" max="7000000" placeholder="e.g., 50000" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Delivery Schedule Section -->
+                        <div class="border-t border-secondary-100 pt-8">
+                            <h3 class="text-xl font-semibold text-secondary-900 mb-4">Delivery Schedule</h3>
+                            <div class="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-6">
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-info-circle text-primary-600 mt-0.5 text-sm"></i>
+                                    <div class="text-sm text-primary-800">
+                                        <strong>One-time:</strong> Single delivery of the full quantity<br>
+                                        <strong>Monthly:</strong> Regular monthly shipments of the specified quantity over the contract period
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Delivery Frequency *</label>
+                                    <select name="delivery_frequency" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                        <option value="">Select Delivery Frequency</option>
+                                        <option value="one-time">One-time Delivery</option>
+                                        <option value="monthly">Monthly Deliveries</option>
+                                    </select>
+                                </div>
+
+                                <div id="monthly-duration" class="hidden">
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Contract Duration *</label>
+                                    <select name="monthly_duration" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                        <option value="">Select Duration</option>
+                                        <option value="3">3 Months</option>
+                                        <option value="6">6 Months</option>
+                                        <option value="12">12 Months (1 Year)</option>
+                                        <option value="18">18 Months</option>
+                                        <option value="24">24 Months (2 Years)</option>
+                                        <option value="36">36 Months (3 Years)</option>
+                                        <option value="custom">Custom Duration (specify in notes)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Logistics Information -->
+                        <div class="border-t border-secondary-100 pt-8">
+                            <h3 class="text-xl font-semibold text-secondary-900 mb-6">Logistics Details</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Delivery Destination *</label>
+                                    <select name="destination" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                        <option value="">Select Destination</option>
+                                        <option value="middle-east">Middle East</option>
+                                        <option value="caribbean">Caribbean</option>
+                                        <option value="usa">United States</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="europe">Europe</option>
+                                        <option value="other">Other (specify in notes)</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Delivery Timeline</label>
+                                    <select name="timeline" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                        <option value="">Select Timeline</option>
+                                        <option value="urgent">Urgent (Within 30 days)</option>
+                                        <option value="standard">Standard (1-3 months)</option>
+                                        <option value="flexible">Flexible (3+ months)</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-secondary-900 mb-2">Delivery Terms</label>
+                                    <select name="delivery_terms" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                                        <option value="">Select Delivery Terms</option>
+                                        <option value="fob">FOB (Free On Board)</option>
+                                        <option value="cif">CIF (Cost, Insurance, Freight)</option>
+                                        <option value="cfr">CFR (Cost and Freight)</option>
+                                        <option value="exw">EXW (Ex Works)</option>
+                                        <option value="ddp">DDP (Delivered Duty Paid)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="border-t border-secondary-100 pt-8">
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Additional Requirements / Notes</label>
+                                <textarea name="notes" rows="4" placeholder="Please specify any special requirements, certifications needed, or additional information..." class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-xl hover:from-primary-700 hover:to-primary-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Submit Quote Request
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="quote-success" class="hidden text-center py-8">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-secondary-900 mb-2">Quote Request Submitted!</h3>
+                        <p class="text-secondary-600">Thank you for your interest. Our team will review your requirements and respond within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+                        Contact Us
+                    </h2>
+                    <p class="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+                        Connect with our team across Egypt and the UAE for all your cement and gypsum needs.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Office Locations -->
+                    <div class="space-y-8">
+                        <!-- UAE Office -->
+                        <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-xl text-secondary-900 mb-2">United Arab Emirates</h3>
+                                    <p class="text-secondary-600 mb-4">Ajman Free Zone</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fas fa-map-marker-alt text-primary-600"></i>
+                                            <span class="text-secondary-700">Office – C1 – 1F – SF4755</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Egypt Office -->
+                        <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-2xl p-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-accent-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-xl text-secondary-900 mb-2">Egypt</h3>
+                                    <p class="text-secondary-600 mb-4">Sheikh Zayed</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fas fa-map-marker-alt text-accent-600"></i>
+                                            <span class="text-secondary-700">Rawdat Al Mohandseen, Building 60, Apartment 3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="bg-secondary-50 rounded-2xl p-8">
+                            <h3 class="font-semibold text-xl text-secondary-900 mb-6">Get In Touch</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-envelope text-primary-600"></i>
+                                    <a href="mailto:Info@solixtrd.com" class="text-secondary-700 hover:text-primary-600 transition-colors duration-300">Info@solixtrd.com</a>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-clock text-primary-600"></i>
+                                    <span class="text-secondary-700">Business Hours: 8:00 AM - 6:00 PM (Local Time)</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-globe-americas text-primary-600"></i>
+                                    <span class="text-secondary-700">Serving Global Markets</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-white border border-secondary-100 rounded-2xl p-8 shadow-lg">
+                        <h3 class="font-semibold text-xl text-secondary-900 mb-6">Send Message</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Name *</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Email *</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Subject</label>
+                                <input type="text" name="subject" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-900 mb-2">Message *</label>
+                                <textarea name="message" required rows="4" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-300">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
+                        </form>
+
+                        <!-- Contact Success Message -->
+                        <div id="contact-success" class="hidden text-center py-8">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-check-circle text-green-600 text-lg"></i>
+                            </div>
+                            <h4 class="font-semibold text-secondary-900 mb-2">Message Sent!</h4>
+                            <p class="text-secondary-600 text-sm">We'll get back to you soon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SGS Certification Section -->
+    <section class="py-16 bg-gradient-to-r from-green-50 to-green-100 border-t border-green-200">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
+                    <div class="flex-shrink-0">
+                        <img src="images/sgs-logo.png" alt="SGS Certification" class="h-16 md:h-20 w-auto">
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-playfair text-2xl md:text-3xl font-bold text-secondary-900 mb-4">
+                            SGS Certified Quality Assurance
+                        </h3>
+                        <p class="text-lg text-secondary-700 mb-4">
+                            With <strong>SGS contracted for comprehensive quality services</strong>, Solix International ensures every cement shipment undergoes 
+                            rigorous certification and pre-departure inspection, guaranteeing <strong>ASTM, European CE, and international quality standards</strong>.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-2 sm:space-y-0 sm:space-x-6">
+                            <div class="flex items-center space-x-2 text-green-700">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="font-medium">SGS Certified Products</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-green-700">
+                                <i class="fas fa-search"></i>
+                                <span class="font-medium">Pre-departure Inspection</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-green-700">
+                                <i class="fas fa-certificate"></i>
+                                <span class="font-medium">Quality Compliance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Company Info -->
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <img src="https://page.gensparksite.com/v1/base64_upload/748ba7d206bb3c63b78481933ab3ce8e" alt="Solix International" class="w-auto opacity-90" style="height: 100px; min-height: 100px;">
+                        </div>
+                        <p class="text-secondary-300 mb-4 leading-relaxed">
+                            Global cement and gypsum trading solutions with 75+ million tons annual capacity from Egypt and UAE, 
+                            connecting international construction projects with SGS certified premium materials.
+                        </p>
+                        <p class="text-secondary-400 text-sm">
+                            Offices in Egypt and UAE • Serving global markets
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="font-semibold text-lg mb-6">Quick Links</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#home" class="text-secondary-300 hover:text-white transition-colors duration-300">Home</a></li>
+                            <li><a href="#about" class="text-secondary-300 hover:text-white transition-colors duration-300">About Us</a></li>
+                            <li><a href="#products" class="text-secondary-300 hover:text-white transition-colors duration-300">Products</a></li>
+                            <li><a href="#capabilities" class="text-secondary-300 hover:text-white transition-colors duration-300">Capabilities</a></li>
+                            <li><a href="#quote" class="text-secondary-300 hover:text-white transition-colors duration-300">Request Quote</a></li>
+                            <li><a href="#contact" class="text-secondary-300 hover:text-white transition-colors duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <h4 class="font-semibold text-lg mb-6">Contact Information</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-envelope text-primary-400 text-sm"></i>
+                                <a href="mailto:Info@solixtrd.com" class="text-secondary-300 hover:text-white transition-colors duration-300">Info@solixtrd.com</a>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-map-marker-alt text-primary-400 mt-0.5 text-sm"></i>
+                                <div class="text-secondary-300">
+                                    <div class="mb-2">UAE: Ajman Free Zone</div>
+                                    <div>Egypt: Sheikh Zayed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-secondary-800 mt-8 pt-8 text-center">
+                    <p class="text-secondary-400">
+                        &copy; 2024 Solix International. All rights reserved. | Global Cement & Gypsum Solutions
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Hamburger menu functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        
+        if (menuBtn && dropdownMenu) {
+            menuBtn.addEventListener('click', function() {
+                dropdownMenu.classList.toggle('show');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+            
+            // Close menu when clicking a link
+            dropdownMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdownMenu.classList.remove('show');
+                });
+            });
+        }
+
+        // Smooth scroll with proper offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* Solix International Icon Pack - Genspark Designer Integration */
+
+/* Base icon class for all Genspark icons - LARGER SIZE */
+.solix-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-size: 192px auto; /* 4 icons per row * 48px = 192px */
+    vertical-align: middle;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.solix-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Core Industrial Set Icons (4x4 grid = 16 icons) */
+.icon-core {
+    background-image: url('../images/icons/core-industrial-set.png');
+    background-size: 192px 192px; /* 4x4 grid at 48px each */
+}
+
+/* Row 1 - 48px positioning */
+.icon-cement-truck { background-position: 0 0; }
+.icon-cargo-ship { background-position: -48px 0; }
+.icon-globe-factory { background-position: -96px 0; }
+.icon-certificate { background-position: -144px 0; }
+
+/* Row 2 */
+.icon-award-ribbon { background-position: 0 -48px; }
+.icon-factory-1 { background-position: -48px -48px; }
+.icon-factory-2 { background-position: -96px -48px; }
+.icon-warehouse { background-position: -144px -48px; }
+
+/* Row 3 */
+.icon-crane { background-position: 0 -96px; }
+.icon-scales-unbalanced { background-position: -48px -96px; }
+.icon-scales-balanced { background-position: -96px -96px; }
+.icon-clock-gear { background-position: -144px -96px; }
+
+/* Row 4 */
+.icon-phone-rotate { background-position: 0 -144px; }
+.icon-phone { background-position: -48px -144px; }
+.icon-email { background-position: -96px -144px; }
+.icon-location-pin { background-position: -144px -144px; }
+
+/* Logistics & Operations Set Icons (3x4 grid = 12 icons) */
+.icon-logistics {
+    background-image: url('../images/icons/logistics-operations-set.png');
+    background-size: 144px 192px; /* 3x4 grid at 48px each */
+}
+
+/* Row 1 - 48px positioning */
+.icon-delivery-truck { background-position: 0 0; }
+.icon-calculator { background-position: -48px 0; }
+.icon-document { background-position: -96px 0; }
+
+/* Row 2 */
+.icon-handshake { background-position: 0 -48px; }
+.icon-refresh-arrows { background-position: -48px -48px; }
+.icon-plus-medical { background-position: -96px -48px; }
+
+/* Row 3 */
+.icon-download { background-position: 0 -96px; }
+.icon-upload { background-position: -48px -96px; }
+.icon-checkmark-circle { background-position: -96px -96px; }
+
+/* Row 4 */
+.icon-star-badge { background-position: 0 -144px; }
+.icon-stopwatch { background-position: -48px -144px; }
+.icon-ruler { background-position: -96px -144px; }
+
+/* Construction & Manufacturing Set */
+.icon-construction {
+    background-image: url('../images/icons/construction-manufacturing-set.png');
+    background-size: 128px auto; /* Will adjust based on actual grid */
+}
+
+/* Digital & Communication Set */
+.icon-digital {
+    background-image: url('../images/icons/digital-communication-set.png');
+    background-size: 128px auto; /* Will adjust based on actual grid */
+}
+
+/* Size variations for different use cases */
+.solix-icon-sm {
+    width: 24px;
+    height: 24px;
+}
+
+.solix-icon-sm.icon-core {
+    background-size: 96px 96px; /* 4x4 grid at 24px each */
+}
+
+.solix-icon-sm.icon-logistics {
+    background-size: 72px 96px; /* 3x4 grid at 24px each */
+}
+
+/* Small icon positioning adjustments */
+.solix-icon-sm.icon-certificate { background-position: -72px 0; } /* Adjusted for 24px grid */
+
+.solix-icon-lg {
+    width: 48px;
+    height: 48px;
+    background-size: 192px auto; /* Proportionally larger */
+}
+
+.solix-icon-xl {
+    width: 64px;
+    height: 64px;
+    background-size: 256px auto; /* Proportionally larger */
+}
+
+/* Icon with text combinations */
+.icon-text-combo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.icon-text-combo:hover {
+    background-color: rgba(14, 165, 233, 0.1);
+}
+
+/* Animated icons for special effects */
+.icon-animated {
+    animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Icon colors - can be applied as filters if needed */
+.icon-blue-filter {
+    filter: hue-rotate(200deg) saturate(1.2);
+}
+
+.icon-orange-filter {
+    filter: hue-rotate(20deg) saturate(1.3);
+}
+
+.icon-gray-filter {
+    filter: grayscale(100%);
+}
+
+/* Responsive icon sizing */
+@media (max-width: 768px) {
+    .solix-icon {
+        width: 28px;
+        height: 28px;
+        background-size: 112px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .solix-icon {
+        width: 24px;
+        height: 24px;
+        background-size: 96px auto;
+    }
+}
