@@ -1,0 +1,215 @@
+/* Reset + base layout for bulletproof fixed header and hero */
+html { scroll-behavior: smooth; overscroll-behavior: none; }
+
+:root {
+  /* Desktop header decoupled from logo size to prevent "shade" growth */
+  --header-desktop: 136px; /* compact fixed header height (keep in sync with hero and popover) */
+  --logo-desktop: 200px;  /* increased to match "Cement" word scale; header stays compact */
+  /* Mobile variables (hero carries the large brand) */
+  --logo-mobile: clamp(180px, 48vw, 270px);
+  --header-mobile: calc(var(--logo-mobile) + 44px);
+  /* Cropping percentages for header logo with internal transparent padding */
+  --logo-crop-top: 0%;
+  --logo-crop-right: 0%;
+  --logo-crop-bottom: 0%;
+  --logo-crop-left: 0%;
+}
+
+/* Font helpers to avoid Tailwind arbitrary value ambiguity */
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-playfair { font-family: 'Playfair Display', serif; }
+
+/********************
+ * Fixed Header
+ ********************/
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: max(var(--header-desktop), var(--logo-desktop));
+  background: #ffffff; /* solid to avoid any shade/blur overlap */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  border-bottom: 0; /* remove separator line */
+  box-shadow: none; /* no visual shade */
+  overflow: visible; /* allow popover to escape; header has no shade */
+}
+
+/* explicit container height inside header to prevent cropping */
+.site-header > .container { min-height: max(var(--header-desktop), var(--logo-desktop)); }
+.site-header .container img.site-logo { max-height: none; height: var(--logo-desktop); }
+
+.site-logo {
+  display: block;
+  height: var(--logo-desktop);
+  width: auto;
+  max-width: none; /* allow natural width, height controls scale */
+  min-width: clamp(640px, 38vw, 960px); /* strong presence without forcing large gaps */
+  object-fit: contain;
+  object-position: left center; /* ensure left alignment within header */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  flex: 0 0 auto; /* never let flexbox squeeze the logo */
+  flex-shrink: 0;
+}
+
+/* crop class intentionally empty after reverting to local tight asset */
+.site-logo-cropped {}
+
+/* Product images: equal proportions */
+.product-photo { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 0.75rem; display: block; margin-bottom: 1.25rem; }
+
+/* desktop nav links */
+.nav-link {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: #334155;
+}
+.nav-link:hover { background: #2563eb; color: #fff; }
+
+/* mobile hamburger */
+.mobile-menu-btn {
+  background: #2563eb;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+}
+
+/* mobile panel anchored directly under header */
+.mobile-popover {
+  position: absolute; /* positioned relative to header container */
+  top: calc(max(var(--header-desktop), var(--logo-desktop)) - 8px);
+  right: 0.75rem;
+  width: 180px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  padding: 0.25rem;
+  z-index: 1200;
+}
+/* Invisible backdrop covering the viewport when menu is open */
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: transparent; /* keep hero clean; can switch to rgba(15,23,42,.25) if you want dim */
+  z-index: 1100; /* below the popover but above the page */
+}
+.mobile-popover-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 600; color: #334155;
+}
+.mobile-popover-link:hover { background: #f1f5f9; color: #0f172a; }
+
+/********************
+ * Page spacing tied to header height
+ ********************/
+html { scroll-padding-top: max(var(--header-desktop), var(--logo-desktop)); }
+.hero-section { padding-top: calc(max(var(--header-desktop), var(--logo-desktop)) + 24px); padding-bottom: 2rem; }
+/* Slightly tighter typography and spacing on desktop */
+.hero-title { letter-spacing: -0.02em; margin-top: 0.5rem; line-height: 1.18; }
+.hero-subtitle { margin-top: 0.6rem !important; }
+/* No hero logo on desktop; hero logo is mobile-only */
+@media (min-width: 769px) {
+  .hero-logo { display: none; }
+}
+
+/* Small-desktop and short screens: tighten hero to keep CTAs visible, but respect larger logo */
+@media (min-width: 769px) and (max-height: 820px) {
+  .hero-section { padding-top: calc(max(var(--header-desktop), var(--logo-desktop)) + 16px); }
+  .hero-title { margin-top: 0.25rem; line-height: 1.20; }
+  .hero-subtitle { margin-top: 0.5rem !important; }
+  .hero-actions { margin-top: 12px !important; margin-bottom: 24px !important; }
+}
+
+/********************
+ * Forms
+ ********************/
+.form-label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+.form-input {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  transition: box-shadow .2s, border-color .2s;
+}
+.form-input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+.link { color: #93c5fd; }
+.link:hover { color: #fff; text-decoration: underline; }
+
+/********************
+ * Responsive rules
+ ********************/
+@media (max-width: 1024px) {
+  /* Keep header height the same at tablet to simplify offsets */
+}
+
+@media (max-width: 768px) {
+  /* Compact header on mobile to reduce perceived "shade" */
+  :root { --header-mobile-height: 36px; --gap-mobile-equal: 0px; --logo-mobile-x: -24px; }
+  .site-header { height: var(--header-mobile-height); }
+  .site-header > .container {
+    position: relative;
+    min-height: var(--header-mobile-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* keep left home anchor and right menu stable */
+    padding-left: 0.75rem;
+    padding-right: 2.75rem; /* space for absolute hamburger */
+  }
+  .mobile-menu-btn {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  /* Hide header logo on mobile; show large hero logo instead */
+  .site-logo { display: none !important; }
+  .mobile-nav { top: var(--header-mobile-height); }
+  html { scroll-padding-top: var(--header-mobile-height); }
+  /* Equal spacing: top band → logo and logo → heading use the same value */
+  .hero-section { padding-top: calc(var(--header-mobile-height) + 8px); padding-bottom: 0.5rem; }
+  .hero-logo {
+    width: clamp(240px, 90vw, 620px);
+    height: auto;
+    display: block;
+    margin-bottom: -8px; /* pull title closer to logo */
+    transform: translateX(var(--logo-mobile-x)) translateY(-18px);
+  }
+  /* Optional visual crop if PNG contains internal white margins */
+  .hero-logo.crop { clip-path: inset(12% 6% 12% 6%); }
+  .hero-title { margin-top: -6px; line-height: 1.07; }
+  .hero-subtitle { margin-top: 10px !important; margin-bottom: 8px !important; }
+  .hero-actions { margin-top: 12px !important; margin-bottom: 40px !important; gap: 14px; }
+
+}
+
+/********************
+ * Safety: never blur the header
+ ********************/
+#navbar.scrolled { background: #ffffff; }
+/* No backdrop-filter here on purpose to avoid any "shade" over the hero */
+
+/* Hero divider for separating the two paragraphs */
+.hero-divider {
+  width: 64px;
+  height: 1px;
+  background: #e2e8f0;
+  border: 0;
+  margin: 8px auto 10px auto;
+}
+
+/* On very short mobile viewports, hide second paragraph and divider to keep CTAs visible */
+@media (max-width: 768px) and (max-height: 740px) {
+  .hero-sub-2, .hero-divider { display: none; }
+  .hero-actions { margin-bottom: 28px !important; }
+}
+
+/* Mobile popover position should follow compact header height */
+@media (max-width: 768px) {
+  .mobile-popover { top: calc(var(--header-mobile-height) - 6px); } /* mobile uses compact height */
+}
